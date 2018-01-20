@@ -3,7 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var signupRouter = require('./routers/signup-router');
 var loginRouter = require('./routers/login-router');
-var dashboardRouuter = require('./routers/dashboard-router');
+var dashboardRouter = require('./routers/dashboard-router');
+var logoutRouter = require('./routers/logout-router');
 var validUsers = require('./models/userlist-model');
 var session = require('express-session');
 
@@ -14,7 +15,8 @@ app.use(session({secret: "Your secret key"}));
 /* Routers */
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
-app.use('/dashboard', dashboardRouuter);
+app.use('/dashboard', dashboardRouter);
+app.use('/logout', logoutRouter)
 
 app.get('/', function(req, res) {
     res.redirect('/login');

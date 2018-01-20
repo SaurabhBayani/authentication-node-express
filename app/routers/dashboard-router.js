@@ -9,7 +9,7 @@ function checkUserSignedIn(req, res, next) {
     }
 }
 
-router.get('/', checkUserSignedIn, function(req, res, next, err) {
+router.get('/', checkUserSignedIn, function(req, res) {
     res.render('dashboard.ejs', {userName: req.session.user.userName});
 });
 
