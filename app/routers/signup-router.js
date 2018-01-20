@@ -15,13 +15,13 @@ router.post("/", function(req, res) {
     } else {
         // Check if user is present already
         validUsers.filter(function(user) {
-            if(user.name === requestBody.name){
+            if(user.userName === requestBody.userName){
                 res.status('404'),
                 res.send('User already present');
             }
         });
         // Add user in userList
-        var newUser = {'name':requestBody.name, 'password':requestBody.password};
+        var newUser = {'userName':requestBody.userName, 'password':requestBody.password};
         validUsers.push(newUser);
         req.session.user = newUser;
         res.redirect('/dashboard');

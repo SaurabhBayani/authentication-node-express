@@ -10,6 +10,7 @@ function checkUserSignedIn(req, res, next) {
 }
 
 router.get('/', checkUserSignedIn, function(req, res) {
+    console.log(req.session);
     res.render('dashboard.ejs', {userName: req.session.user.userName});
 });
 
